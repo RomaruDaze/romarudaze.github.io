@@ -1,0 +1,41 @@
+:root {
+  /* Colors */
+  --color-bg: #fafafa;
+  --color-surface: #ffffff;
+  --color-border: #e5e7eb;
+  --color-border-subtle: #f3f4f6;
+  --color-text-primary: #111827;
+  --color-text-muted: #6b7280;
+  --color-text-faint: #9ca3af;
+  --color-accent: #2563eb;
+  --color-accent-hover: #1d4ed8;
+
+  /* Tag: neutral (Languages, Databases & Tools, Design) */
+  --color-tag-neutral-bg: #f9fafb;
+  --color-tag-neutral-border: #e5e7eb;
+  --color-tag-neutral-text: #374151;
+
+  /* Tag: blue (Frameworks) */
+  --color-tag-fw-bg: #eff6ff;
+  --color-tag-fw-border: #bfdbfe;
+  --color-tag-fw-text: #1d4ed8;
+
+  /* Tag: green (Cloud & Deployment) */
+  --color-tag-cloud-bg: #f0fdf4;
+  --color-tag-cloud-border: #bbf7d0;
+  --color-tag-cloud-text: #166534;
+
+  /* Typography */
+  --font-heading: 'Archivo', sans-serif;
+  --font-body: 'Space Grotesk', sans-serif;
+
+  /* Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 10px;
+  --radius-pill: 20px;
+
+  /* Spacing */
+  --section-padding: 48px 24px;
+  --section-padding-sm: 32px 24px;
+}
