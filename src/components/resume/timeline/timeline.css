@@ -22,52 +22,38 @@
 }
 
 .tl-item {
-  display: flex;
-  gap: 14px;
+  position: relative;
+  padding-left: 24px;
+  padding-bottom: 28px;
+  border-left: 2px solid var(--color-border);
 }
 
-.tl-track {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  flex-shrink: 0;
-  align-self: stretch;
-  width: 12px;
+.tl-item:last-child {
+  padding-bottom: 0;
+  border-left-color: transparent;
 }
 
-.tl-dot {
+.tl-item::before {
+  content: '';
+  position: absolute;
+  left: -6px;
+  top: 3px;
   width: 10px;
   height: 10px;
   border-radius: 50%;
   background: var(--color-surface);
   border: 2px solid var(--color-text-faint);
-  flex-shrink: 0;
-  margin-top: 5px;
 }
 
-.tl-dot--current {
+.tl-item--current::before {
   background: var(--color-text-primary);
   border-color: var(--color-text-primary);
 }
 
-.tl-line {
-  width: 2px;
-  flex: 1;
-  background: var(--color-border);
-  margin: 4px 0;
-  min-height: 24px;
-  border-radius: 1px;
-}
-
 .tl-body {
-  padding-bottom: 20px;
   display: flex;
   flex-direction: column;
   gap: 2px;
-}
-
-.tl-item:last-child .tl-body {
-  padding-bottom: 0;
 }
 
 .tl-header {

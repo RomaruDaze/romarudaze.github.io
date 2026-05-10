@@ -84,16 +84,12 @@ function Timeline() {
         {TIMELINE_ENTRIES.map((entry, index) => (
           <div
             key={`${entry.title}-${index}`}
-            className={`tl-item ${isVisible ? "rise-up" : ""}`}
+            className={`tl-item ${entry.isCurrent ? "tl-item--current" : ""} ${isVisible ? "rise-up" : ""}`}
             style={{
               opacity: isVisible ? undefined : 0,
               animationDelay: `${index * 0.08}s`,
             }}
           >
-            <div className="tl-track">
-              <div className={`tl-dot ${entry.isCurrent ? "tl-dot--current" : ""}`} />
-              {index < TIMELINE_ENTRIES.length - 1 && <div className="tl-line" />}
-            </div>
             <div className="tl-body">
               <div className="tl-header">
                 {entry.href ? (
