@@ -1,5 +1,5 @@
 import "./timeline.css";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 interface TimelineEntry {
   title: string;
@@ -60,36 +60,35 @@ const TIMELINE_ENTRIES: TimelineEntry[] = [
 ];
 
 function Timeline() {
-  const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const [isVisible, setIsVisible] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("rise-up");
-            observer.unobserve(entry.target);
-          }
-        });
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
       },
-      { threshold: 0.2 }
+      { threshold: 0.1 }
     );
-    itemRefs.current.forEach((el) => {
-      if (el) observer.observe(el);
-    });
+    if (ref.current) observer.observe(ref.current);
     return () => observer.disconnect();
   }, []);
 
   return (
-    <div className="timeline-section">
+    <div className="timeline-section" ref={ref}>
       <span className="section-label">Career & Education</span>
       <div className="timeline">
         {TIMELINE_ENTRIES.map((entry, index) => (
           <div
             key={`${entry.title}-${index}`}
-            className="tl-item"
-            ref={(el) => (itemRefs.current[index] = el)}
-            style={{ opacity: 0 }}
+            className={`tl-item ${isVisible ? "rise-up" : ""}`}
+            style={{
+              opacity: isVisible ? undefined : 0,
+              animationDelay: `${index * 0.08}s`,
+            }}
           >
             <div className="tl-track">
               <div className={`tl-dot ${entry.isCurrent ? "tl-dot--current" : ""}`} />
