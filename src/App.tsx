@@ -1,5 +1,4 @@
 import { HashRouter as Router, Routes, Route } from "react-router-dom";
-import "./assets/fonts/font-roboto.css";
 import Header from "./components/header/header";
 import Body from "./components/home/body";
 import Resume from "./components/resume/resume";
