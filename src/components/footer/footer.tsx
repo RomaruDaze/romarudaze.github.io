@@ -9,26 +9,25 @@ import {
 
 function Footer() {
   return (
-    <div className="footer-container roboto-thin">
-      <div className="footer-social-media">
-        <a
-          href="https://linkedin.com/in/roger-marvin-78659b302/"
-          target="_blank"
-        >
-          <FontAwesomeIcon icon={faLinkedin} />
-        </a>
-        <a href="https://github.com/RomaruDaze" target="_blank">
-          <FontAwesomeIcon icon={faGithub} />
-        </a>
-        <a href="https://instagram.com/romaru._" target="_blank">
-          <FontAwesomeIcon icon={faInstagram} />
-        </a>
-        <a href="https://x.com/RomaruDaze" target="_blank">
-          <FontAwesomeIcon icon={faXTwitter} />
-        </a>
+    <footer className="footer">
+      <div className="footer-inner">
+        <span className="footer-copy">© 2026 Roger Marvin</span>
+        <div className="footer-icons">
+          <a href="https://linkedin.com/in/roger-marvin-78659b302/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <FontAwesomeIcon icon={faLinkedin} />
+          </a>
+          <a href="https://github.com/RomaruDaze" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <FontAwesomeIcon icon={faGithub} />
+          </a>
+          <a href="https://instagram.com/romaru._" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <FontAwesomeIcon icon={faInstagram} />
+          </a>
+          <a href="https://x.com/RomaruDaze" target="_blank" rel="noopener noreferrer" aria-label="X / Twitter">
+            <FontAwesomeIcon icon={faXTwitter} />
+          </a>
+        </div>
       </div>
-      <p>Copyright © 2024 Roger Marvin</p>
-    </div>
+    </footer>
   );
 }
 
