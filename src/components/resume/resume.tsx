@@ -8,96 +8,69 @@ import {
   faLinkedin,
   faXTwitter,
 } from "@fortawesome/free-brands-svg-icons";
-import { useEffect, useRef } from "react";
-import { faLightbulb } from "@fortawesome/free-solid-svg-icons";
+import { useEffect, useRef, useState } from "react";
 
 function Resume() {
+  const [isVisible, setIsVisible] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  const headerRef = useRef<HTMLDivElement>(null);
-
   useEffect(() => {
     const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("rise-up");
-            observer.unobserve(entry.target);
-          }
-        });
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
       },
-      { threshold: 0.5 }
+      { threshold: 0.1 }
     );
-
-    if (headerRef.current) observer.observe(headerRef.current);
-    return () => {
-      observer.disconnect();
-    };
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
   }, []);
 
-  return (
-    <div className="resume-container">
-      <div className="resume-header" ref={headerRef}>
-        <div className="resume-about-picture">
-          <img src={profilePicture} alt="about" />
-        </div>
-        <div className="resume-about-content">
-          <h1>Roger Marvin</h1>
-          <h2>Software Engineer</h2>
-          <p>
-            Hi, I'm Roger Marvin, a 22-year-old software engineer from{" "}
-            <span>Indonesia</span> currently studying abroad in{" "}
-            <span>Japan</span>. I have a passion for coding and aim to
-            contribute to the development of Indonesia's tech landscape. My
-            skill set includes <span>React</span>, <span>Flutter</span>, and{" "}
-            <span>Python</span>, which I leverage to create innovative solutions
-            and applications. I'm excited to connect with like-minded
-            individuals and explore opportunities in the tech industry.
-          </p>
-          <div className="social-links">
-            <div id="linkedin" className="social-btn flex-center">
-              <a
-                href="https://linkedin.com/in/roger-marvin-78659b302/"
-                target="_blank"
-              >
-                <FontAwesomeIcon icon={faLinkedin} />
-              </a>
-              <span>RogerMarvin</span>
-            </div>
+  const socials = [
+    { icon: faLinkedin, label: "LinkedIn", handle: "Roger Marvin", href: "https://linkedin.com/in/roger-marvin-78659b302/" },
+    { icon: faGithub, label: "GitHub", handle: "RomaruDaze", href: "https://github.com/RomaruDaze" },
+    { icon: faInstagram, label: "Instagram", handle: "@romaru._", href: "https://instagram.com/romaru._" },
+    { icon: faXTwitter, label: "X", handle: "@RomaruDaze", href: "https://x.com/RomaruDaze" },
+  ];
 
-            <div id="github" className="social-btn flex-center">
-              <a href="https://github.com/RomaruDaze" target="_blank">
-                <FontAwesomeIcon icon={faGithub} />
+  return (
+    <div className="resume-page">
+      <div
+        className={`resume-profile ${isVisible ? "rise-up" : ""}`}
+        ref={ref}
+        style={{ opacity: isVisible ? undefined : 0 }}
+      >
+        <img src={profilePicture} alt="Roger Marvin" className="resume-photo" />
+        <div className="resume-info">
+          <h1 className="resume-name">Roger Marvin</h1>
+          <p className="resume-title">Software Engineer</p>
+          <p className="resume-bio">
+            22-year-old software engineer from <strong>Indonesia</strong>, studying abroad in{" "}
+            <strong>Japan</strong>. Skilled in React, Flutter, and Python — passionate about
+            Digital Transformation.
+          </p>
+          <div className="resume-socials">
+            {socials.map((s) => (
+              <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" className="resume-social-tag">
+                <FontAwesomeIcon icon={s.icon} />
+                <span>{s.handle}</span>
               </a>
-              <span>RomaruDaze</span>
-            </div>
-            <div id="twitter" className="social-btn flex-center">
-              <a href="https://instagram.com/romaru._" target="_blank">
-                <FontAwesomeIcon icon={faInstagram} />
-              </a>
-              <span>@romaru._</span>
-            </div>
-            <div id="twitter" className="social-btn flex-center">
-              <a href="https://x.com/RomaruDaze" target="_blank">
-                <FontAwesomeIcon icon={faXTwitter} />
-              </a>
-              <span>@RomaruDaze</span>
-            </div>
+            ))}
           </div>
         </div>
       </div>
       <Timeline />
-      <div className="resume-question">
-        <h1>
-          <FontAwesomeIcon icon={faLightbulb} /> Want to chat?
-        </h1>
-        <p>
-          You can contact me by email at{" "}
-          <a href="mailto:romarudazee99@gmail.com">romarudazee99@gmail.com</a>.
-          You will also find my phone number on my CV.
-        </p>
+      <div className="resume-cta">
+        <span>Want to connect?</span>
+        <a href="mailto:romarudazee99@gmail.com" className="resume-cta-link">
+          romarudazee99@gmail.com →
+        </a>
       </div>
     </div>
   );

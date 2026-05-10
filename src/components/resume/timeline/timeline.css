@@ -1,120 +1,123 @@
+.timeline-section {
+  padding: var(--section-padding-sm);
+  border-bottom: 1px solid var(--color-border-subtle);
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.section-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-faint);
+}
+
 .timeline {
-    position: relative;
-    padding: 20px 0;
+  display: flex;
+  flex-direction: column;
 }
 
-.timeline-today {
-    position: relative;
-    top: -100px;
-    margin-bottom: -100px;
+.tl-item {
+  display: flex;
+  gap: 14px;
 }
 
-.timeline-date-today {
-    position: absolute;
-    top: 12px;
-    left: -150px;
-    font-weight: bold;
-    font-size: 1rem;
+.tl-track {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+  width: 12px;
 }
 
-.timeline-circle-today {
-    background-color: var(--secondary-color);
-    position: absolute;
-    border-radius: 50%;
-    left: -22.5px;
-    height: 50px;
-    width: 50px;
-    top: 0px;
+.tl-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--color-surface);
+  border: 2px solid var(--color-border);
+  flex-shrink: 0;
+  margin-top: 4px;
 }
 
-.timeline-content-today {
-    position: relative;
-    padding-left: 150px;
-    padding-bottom: 150px;
-    border-left: 5px solid var(--secondary-color);
+.tl-dot--current {
+  background: var(--color-text-primary);
+  border-color: var(--color-text-primary);
 }
 
-.timeline-date {
-    position: absolute;
-    left: -150px;
-    top: 5px;
-    font-weight: bold;
-    font-size: 0.8rem;
+.tl-line {
+  width: 1px;
+  flex: 1;
+  background: var(--color-border);
+  margin: 4px 0;
+  min-height: 16px;
 }
 
-.timeline-circle {
-    background-color: var(--secondary-color);
-    position: absolute;
-    border-radius: 50%;
-    left: -12.5px;
-    height: 30px;
-    width: 30px;
+.tl-body {
+  padding-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
 
-.timeline-content {
-    padding-left: 50px;
-    padding-bottom: 100px;
-    border-left: 5px solid var(--secondary-color);
+.tl-item:last-child .tl-body {
+  padding-bottom: 0;
 }
 
-.timeline-content h3 {
-    margin: 0;
-    font-size: 1.3rem;
+.tl-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
 }
 
-.timeline-content h3 a {
-    color: var(--primary-color);
-    text-decoration: none;
-    background-color: var(--secondary-color);
-    padding: 3px 10px;
-    border-radius: 5px;
-    transition: all 0.3s ease;
+.tl-title {
+  font-family: var(--font-heading);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text-primary);
 }
 
-.timeline-content h3 a:hover {
-    background-color: var(--primary-color);
-    color: var(--secondary-color);
+.tl-title--link {
+  color: var(--color-accent);
+  transition: color 0.15s ease;
+  cursor: pointer;
 }
 
-.timeline-content p {
-    margin: 5px 0;
+.tl-title--link:hover {
+  color: var(--color-accent-hover);
 }
 
-.timeline-item {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.5s ease, transform 0.5s ease;
+.tl-duration {
+  font-size: 10px;
+  color: var(--color-text-faint);
+  font-weight: 500;
 }
 
-.rise-up {
-    opacity: 1;
-    transform: translateY(0);
+.tl-subtitle {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  margin: 0;
 }
 
-@media (max-width: 450px) {
-    .timeline-date-today {
-        left: -110px;
-    }
+.tl-detail {
+  font-size: 12px;
+  color: var(--color-text-faint);
+  margin: 0;
+  line-height: 1.5;
+}
 
-    .timeline-date {
-        position: absolute;
-        left: -110px;
-    }
-
-    .timeline-content {
-        padding-left: 30px;
-    }
-
-    .timeline-content h3 {
-        margin: 0;
-        font-size: 1rem;
-    }
-    .timeline-content h3 {
-        margin: 0;
-        font-size: 1rem;
-    }
-    .timeline-content h3 a {
-        padding: 3px 5px;
-    }
-
+.exp-badge {
+  background: var(--color-text-primary);
+  color: #ffffff;
+  font-size: 9px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: var(--radius-pill);
+  letter-spacing: 0.04em;
 }
