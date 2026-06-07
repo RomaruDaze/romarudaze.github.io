@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { projects, type Project } from "../../data/projects";
 import ProjectCard from "./project-card";
+import ProjectModal from "./project-modal";
 import "./project-grid.css";
 
 function ProjectGrid() {
@@ -14,10 +15,7 @@ function ProjectGrid() {
         ))}
       </div>
       {selectedProject !== null && (
-        <p className="section__heading">
-          <span className="section__heading-prompt">$</span> selected: {selectedProject.title}
-          {" "}(modal wired in next task)
-        </p>
+        <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />
       )}
     </>
   );
