@@ -1,10 +1,11 @@
 import { socialLinks } from "../../data/social";
-import { GitHubIcon, LinkedInIcon, EmailIcon } from "../icons/icons";
+import { GitHubIcon, LinkedInIcon, InstagramIcon, EmailIcon } from "../icons/icons";
 import "./footer.css";
 
 const iconComponents = {
   github: GitHubIcon,
   linkedin: LinkedInIcon,
+  instagram: InstagramIcon,
   email: EmailIcon,
 };
 

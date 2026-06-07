@@ -1,5 +1,5 @@
 import { socialLinks } from "../../data/social";
-import { GitHubIcon, LinkedInIcon, EmailIcon } from "../icons/icons";
+import { GitHubIcon, LinkedInIcon, InstagramIcon, EmailIcon } from "../icons/icons";
 import "./header.css";
 
 const navItems = [
@@ -11,6 +11,7 @@ const navItems = [
 const iconComponents = {
   github: GitHubIcon,
   linkedin: LinkedInIcon,
+  instagram: InstagramIcon,
   email: EmailIcon,
 };
 

@@ -7,22 +7,30 @@ export interface ExperienceEntry {
   tags?: string[];
 }
 
-// Sample entries — replace with your real history, most recent first.
+// Most recent first.
 export const experience: ExperienceEntry[] = [
   {
-    id: "sample-role-one",
+    id: "rakus",
     role: "Software Engineer",
-    organization: "Sample Company",
-    period: "2024 — Present",
+    organization: "RAKUS Co., Ltd.",
+    period: "2026 — Present",
     description:
-      "Brief summary of your responsibilities and impact in this role.",
-    tags: ["TypeScript", "React"],
+      "Working as a software engineer building and maintaining web applications.",
   },
   {
-    id: "sample-role-two",
-    role: "B.S. in Computer Science",
-    organization: "Sample University",
-    period: "2020 — 2024",
-    description: "Relevant coursework, honors, or projects worth mentioning.",
+    id: "beenos",
+    role: "Software Engineer",
+    organization: "BEENOS",
+    period: "2025 — 2026",
+    description:
+      "Worked as a software engineer contributing to web application development.",
+  },
+  {
+    id: "kaishi-pu",
+    role: "Undergraduate, Information Technology",
+    organization: "Kaishi Professional University",
+    period: "2022 — 2026",
+    description:
+      "Studied information technology with a focus on software development.",
   },
 ];

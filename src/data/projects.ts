@@ -10,28 +10,28 @@ export interface Project {
   };
 }
 
-// Sample entries — replace with your real projects. Adding a new project
-// is just adding another object to this array; no component changes needed.
+// Adding a new project is just adding another object to this array;
+// no component changes needed.
 export const projects: Project[] = [
   {
-    id: "sample-project-one",
-    title: "Sample Project One",
+    id: "livetem",
+    title: "Livetem",
     description:
-      "A short description of what this project does, the problem it solves, and the stack you used.",
-    tags: ["React", "TypeScript"],
+      "A VS Code extension for saving, organizing, and inserting code snippets without leaving the editor. Published on the VS Code Marketplace.",
+    tags: ["React", "TypeScript", "VS Code Extension"],
     links: {
-      repo: "https://github.com/your-username/sample-project-one",
+      live: "https://marketplace.visualstudio.com/items?itemName=RomaruDaze.livetem",
+      repo: "https://github.com/RomaruDaze/livetem",
     },
   },
   {
-    id: "sample-project-two",
-    title: "Sample Project Two",
+    id: "demo-ecsites",
+    title: "Demo E-Commerce Site",
     description:
-      "Another short description — what it is, why you built it, and anything notable about the approach.",
-    tags: ["Node.js", "PostgreSQL"],
+      "A demo e-commerce web application built to practice server-rendered architecture with Spring Boot and Thymeleaf templates.",
+    tags: ["Spring Boot", "Thymeleaf", "Java"],
     links: {
-      live: "https://example.com",
-      repo: "https://github.com/your-username/sample-project-two",
+      repo: "https://github.com/RomaruDaze/demo-ecsites",
     },
   },
 ];
