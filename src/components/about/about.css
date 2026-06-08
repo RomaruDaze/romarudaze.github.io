@@ -1,0 +1,18 @@
+.about__content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.about__name {
+  font-size: 2rem;
+  color: var(--color-text-primary);
+}
+
+.about__bio {
+  max-width: 60ch;
+  color: var(--color-text-secondary);
+  font-size: 1.05rem;
+  font-family: var(--font-body);
+  margin: 0;
+}
